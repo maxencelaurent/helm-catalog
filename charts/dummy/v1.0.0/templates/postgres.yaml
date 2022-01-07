@@ -28,19 +28,6 @@ spec:
       annotations:
         checksum/config: {{ include (print $.Template.BasePath "/config.yaml") . | sha256sum }}
     spec:
-      affinity:
-        nodeAffinity:
-          requiredDuringSchedulingIgnoredDuringExecution:
-            nodeSelectorTerms:
-            - matchExpressions:
-              - key: {{ template "colab.fullname" . }}
-                operator: In
-                values:
-                - "true"
-              - key: postgres
-                operator: In
-                values:
-                - "true"
       containers:
         - name: {{ template "colab.fullname" . }}-psql
           image: postgres:11-alpine
