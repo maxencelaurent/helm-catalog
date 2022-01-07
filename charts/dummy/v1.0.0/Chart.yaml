@@ -1,5 +1,5 @@
 apiVersion: v2
-name: colab
+name: dummy
 description: The co.LAB platform
 icon: file://../logo.png
 type: application
