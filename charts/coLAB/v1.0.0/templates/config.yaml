@@ -2,7 +2,7 @@
 apiVersion: v1
 kind: ConfigMap
 data:
-  colab.properties: |
+  colab.properties: |-
     colab.smtp.domain={{ .Values.colab.smtp.domain }}
     colab.smtp.auth={{ .Values.colab.smtp.auth }}
     colab.smtp.username={{ .Values.colab.smtp.username }}
@@ -27,8 +27,8 @@ data:
   COLAB_DEFAULT_ADMIN_USERNAME: {{ .Values.colab.admin.username }}
   COLAB_DEFAULT_ADMIN_EMAIL: {{ .Values.colab.admin.email }}
   HEAP_SIZE: {{ .Values.colab.java_heap }}M
-  MIN_HTTP_THREADS: {{ .Values.colab.min_threads }}
-  MAX_HTTP_THREADS: {{ .Values.colab.max_threads }}
+  MIN_HTTP_THREADS: {{ .Values.colab.min_threads | quote }}
+  MAX_HTTP_THREADS: {{ .Values.colab.max_threads | quote }}
 metadata:
   name: {{ template "colab.fullname" . }}-hard-config
   labels:
