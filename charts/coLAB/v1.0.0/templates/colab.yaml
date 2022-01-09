@@ -126,7 +126,7 @@ spec:
             - name: COLAB_DATABASE_HOST
               value: {{ template "colab.fullname" . }}-psql
             - name: COLAB_DATABASE_PORT
-              value: 5432
+              value: "5432"
             - name: COLAB_DATABASE_NAME
               valueFrom:
                 configMapKeyRef:
