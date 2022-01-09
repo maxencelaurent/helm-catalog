@@ -189,7 +189,7 @@ spec:
             - name: HEAP_SIZE
               valueFrom:
                 configMapKeyRef:
-                  key: JAVA_HEAP
+                  key: HEAP_SIZE
                   name: {{ template "colab.fullname" . }}-hard-config
                   optional: false
 
