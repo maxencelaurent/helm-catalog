@@ -197,15 +197,16 @@ spec:
               valueFrom:
                 configMapKeyRef:
                   key: MIN_HTTP_THREADS
-                  name: {{ template "colab.fullname" . }}-config
+                  name: {{ template "colab.fullname" . }}-hard-config
                   optional: true
-            - name: MIN_HTTP_THREADS
+            - name: MAX_HTTP_THREADS
               valueFrom:
                 configMapKeyRef:
-                  key: MIN_HTTP_THREADS
-                  name: {{ template "colab.fullname" . }}-config
+                  key: MAX_HTTP_THREADS
+                  name: {{ template "colab.fullname" . }}-hard-config
                   optional: true
-
+            - name: SYSTEM_PROPS
+              value: /etc/colab/colab.properties
           securityContext:
             allowPrivilegeEscalation: false
             capabilities: {}
@@ -215,14 +216,9 @@ spec:
           volumeMounts:
             - mountPath: /etc/colab
               name: colab-config-file
-      tolerations:
-        - key: {{ template "colab.fullname" . }}
-          operator: Equal
-          effect: NoSchedule
-          value: "true"
       volumes:
       - configMap:
-          name: {{ template "colab.fullname" . }}-userconfig
+          name: {{ template "colab.fullname" . }}-user-config
           defaultMode: 420
         name: colab-config-file
 ---
