@@ -23,6 +23,6 @@ spec:
             port:
               number: 8181
             name: {{ template "colab.fullname" . }}-service
-        path: ''
+        path: "/"
         pathType: Prefix
 {{- end -}}
