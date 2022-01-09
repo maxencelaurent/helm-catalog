@@ -3,13 +3,13 @@ entries:
   dummy:
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2022-01-09T10:18:11.876911902+01:00"
+    created: "2022-01-09T10:20:37.421216244+01:00"
     description: The co.LAB platform
-    digest: abd59ef87da49c3cb356e7aa9f9f8f9cc549345ef4d0c9a7a485c0e23369101e
+    digest: cf5709e04195c3ce322acfba57fa7b04611f20dd66ea44de7e42f30f5f374312
     icon: file://../logo.png
     name: dummy
     type: application
     urls:
     - dummy-1.0.0.tgz
     version: 1.0.0
-generated: "2022-01-09T10:18:11.876469478+01:00"
+generated: "2022-01-09T10:20:37.420850501+01:00"
