@@ -21,7 +21,6 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: {{ template "colab.fullname" . }}-psql
-  generation: 1
   labels:
     app: {{ template "colab.fullname" . }}-psql
     chart: {{ .Chart.Name }}-{{ .Chart.Version | replace "+" "_" }}
@@ -46,24 +45,14 @@ spec:
       annotations:
         checksum/config: {{ include (print $.Template.BasePath "/config.yaml") . | sha256sum }}
     spec:
-      affinity:
-        nodeAffinity:
-          requiredDuringSchedulingIgnoredDuringExecution:
-            nodeSelectorTerms:
-            - matchExpressions:
-              - key: {{ template "colab.fullname" . }}
-                operator: In
-                values:
-                - "true"
-              - key: postgres
-                operator: In
-                values:
-                - "true"
       containers:
         - name: {{ template "colab.fullname" . }}-psql
           image: postgres:11-alpine
           imagePullPolicy: Always
-          resources: {}
+          resources:
+            requests:
+              memory: 500Mi
+              cpu: 0.5
           env:
             - name: POSTGRES_DB
               valueFrom:

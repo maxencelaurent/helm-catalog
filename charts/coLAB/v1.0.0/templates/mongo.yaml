@@ -99,7 +99,10 @@ spec:
             tcpSocket:
               port: 27017
             timeoutSeconds: 2
-          resources: {}
+          resources:
+            memory: 500Mi
+            cpu: 0.4
+
           securityContext:
             allowPrivilegeEscalation: false
             capabilities: {}

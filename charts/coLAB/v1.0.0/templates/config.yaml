@@ -26,7 +26,7 @@ data:
   COLAB_DATABASE_USER: {{ .Values.db.user }}
   COLAB_DEFAULT_ADMIN_USERNAME: {{ .Values.colab.admin.username }}
   COLAB_DEFAULT_ADMIN_EMAIL: {{ .Values.colab.admin.email }}
-  HEAP_SIZE: {{ .Values.colab.java_heap }}
+  HEAP_SIZE: {{ .Values.colab.java_heap }}M
   MIN_HTTP_THREADS: {{ .Values.colab.min_threads }}
   MAX_HTTP_THREADS: {{ .Values.colab.max_threads }}
 metadata:

@@ -51,9 +51,9 @@ questions:
   required: true
 - variable: colab.java_heap
   group: "Runtime"
-  label: Java Heap Size (eg 1G, 512M, etc)
+  label: Java Heap Size (in M)
   type: string
-  default: "1500M"
+  default: "1500"
   required: true
 - variable: colab.nbthreads
   group: "Runtime"

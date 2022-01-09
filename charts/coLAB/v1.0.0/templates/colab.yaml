@@ -2,12 +2,12 @@
 {{- /*
  Interal service resolver:
   - setting ClusterIp to None to resolve to all internal POD ip address
-  - used by pods to cluster together (clustermode = dns:...-internal) 
+  - used by pods to cluster together (clustermode = dns:...-internal-service) 
 */}}
 apiVersion: v1
 kind: Service
 metadata:
-  name: {{ template "colab.fullname" . }}-internal
+  name: {{ template "colab.fullname" . }}-internal-service
   labels:
     app: {{ template "colab.fullname" . }}
     chart: {{ .Chart.Name }}-{{ .Chart.Version | replace "+" "_" }}
@@ -28,7 +28,7 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: {{ template "colab.fullname" . }}
+  name: {{ template "colab.fullname" . }}-service
   labels:
     app: {{ template "colab.fullname" . }}
     chart: {{ .Chart.Name }}-{{ .Chart.Version | replace "+" "_" }}
@@ -118,6 +118,7 @@ spec:
           resources:
             requests:
               memory: {{ div ( mul .Values.colab.java_heap 180 ) 100 }}Mi
+              cpu: 0.9
           env:
             ##
             # SQL Backend
@@ -149,7 +150,7 @@ spec:
             # JCR Backend
             #**************************************************************
             - name: COLAB_JCR_MONGODB_URI
-              value: {{ template "colab.fullname" . }}-mongo
+              value: mongodb://{{ template "colab.fullname" . }}-mongo/oak
 
             ##
             # Default credentials
@@ -181,7 +182,7 @@ spec:
             - name: INTERFACES
               value: 10.*.*.*
             - name: CLUSTER_MODE
-              value: dns:{{ template "colab.fullname" . }}-internal:6900
+              value: dns:{{ template "colab.fullname" . }}-internal-service:6900
             - name: CLUSTER_NAME
               value: {{ template "colab.fullname" . }}_cluster
 
