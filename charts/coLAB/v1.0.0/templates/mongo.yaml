@@ -100,8 +100,9 @@ spec:
               port: 27017
             timeoutSeconds: 2
           resources:
-            memory: 500Mi
-            cpu: 400m
+            requests:
+              memory: 500Mi
+              cpu: 400m
 
           securityContext:
             allowPrivilegeEscalation: false
