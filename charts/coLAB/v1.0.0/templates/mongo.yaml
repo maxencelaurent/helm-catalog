@@ -41,7 +41,6 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: {{ template "colab.fullname" . }}-mongo
-  generation: 1
   labels:
     app: {{ template "colab.fullname" . }}-mongo
     chart: {{ .Chart.Name }}-{{ .Chart.Version | replace "+" "_" }}

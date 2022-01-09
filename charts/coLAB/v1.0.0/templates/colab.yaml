@@ -49,7 +49,6 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: {{ template "colab.fullname" . }}-payara
-  generation: 1
   labels:
     app: {{ template "colab.fullname" . }}-payara
     chart: {{ .Chart.Name }}-{{ .Chart.Version | replace "+" "_" }}

@@ -15,7 +15,7 @@ metadata:
 spec:
 
   rules:
-  - host: host.local
+  - host: { .Values.ingress.hostname }
     http:
       paths:
       - backend:
