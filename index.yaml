@@ -3,9 +3,9 @@ entries:
   colab:
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2022-01-09T16:14:12.412656172+01:00"
+    created: "2022-01-09T16:18:54.184904762+01:00"
     description: The co.LAB platform
-    digest: 1ee73dda9f0db14163a3d8e2ee80cc53f02417c0acef268c12e7e317a3123fc5
+    digest: 8148851067e32fe57fb27525c2d4bd6e28054ac24fd728b6e3382c9f8562aa43
     icon: file://../logo.png
     name: colab
     type: application
@@ -15,7 +15,7 @@ entries:
   dummy:
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2022-01-09T16:14:12.412973975+01:00"
+    created: "2022-01-09T16:18:54.185152051+01:00"
     description: The co.LAB platform
     digest: 62b78cf9dc63677ff4eac635b5f49a17b46869a92b734647ffa000d1987f9bf6
     icon: file://../logo.png
@@ -24,4 +24,4 @@ entries:
     urls:
     - dummy-1.0.0.tgz
     version: 1.0.0
-generated: "2022-01-09T16:14:12.412224648+01:00"
+generated: "2022-01-09T16:18:54.184467947+01:00"
