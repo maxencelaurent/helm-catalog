@@ -223,6 +223,6 @@ spec:
       volumes:
       - configMap:
           name: {{ template "colab.fullname" . }}-userconfig
-          defaulMode: 420
+          defaultMode: 420
         name: colab-config-file
 ---
