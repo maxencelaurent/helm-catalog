@@ -13,13 +13,14 @@ metadata:
     traefik.ingress.kubernetes.io/max-conn-amount: {{ .Values.colab.max_threads | quote }}
     traefik.ingress.kubernetes.io/max-conn-extractor-func: request.host
 spec:
+
   rules:
-  - host: {{ .Values.ingress.hostname }}
+  - host: host.local
     http:
       paths:
       - backend:
           service:
-            name: {{ template "colab.fullname" . }}-service
-            port: 
+            port:
               number: 8181
+            name: {{ template "colab.fullname" . }}-service
 {{- end -}}
