@@ -2,7 +2,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: postgresql
+  app: {{ template "colab.fullname" . }}-psql
   labels:
     app: {{ template "colab.fullname" . }}-psql
     chart: {{ .Chart.Name }}-{{ .Chart.Version | replace "+" "_" }}
